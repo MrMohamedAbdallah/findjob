@@ -43,7 +43,7 @@ Nothing to show
                                         <input type="email" name="email" id="email" value="{{ old('email') }}"
                                             class="@error('email') is-invalid border-danger @enderror" />
                                         @error('email')
-                                        <small class="invalid-feedback">The email is invalid</small>
+                                        <small class="invalid-feedback" style="display: block;">Invalid email or password</small>
                                         @enderror
                                     </div>
                                     <!-- Password -->
@@ -52,7 +52,7 @@ Nothing to show
                                         <input type="password" name="password" id="password"
                                             class="@error('password') is-invalid border-danger @enderror" />
                                             @error('password')
-                                            <small class="invalid-feedback">The password is invalid</small>
+                                            <small class="invalid-feedback" style="display: block;">The password is invalid</small>
                                             @enderror
                                     </div>
                                     <!-- Password -->
@@ -90,10 +90,10 @@ Nothing to show
                                         <div class="col-md-6">
                                             <div class="form-group mb-30">
                                                 <label for="fname" class="d-block">First Name:</label>
-                                                <input type="text" name="fname" id="fname"
+                                                <input type="text" name="fname" id="fname" value="{{ old('fname') }}"
                                                     class="@error('fname') is-invalid border-danger @enderror" />
                                                     @error('fname')
-                                                    <div class="invalid-feedback">Invalid name</div>
+                                                    <div class="invalid-feedback" style="display: block;">Invalid name</div>
                                                     @enderror
                                             </div>
                                         </div>
@@ -102,10 +102,10 @@ Nothing to show
                                         <div class="col-md-6">
                                             <div class="form-group mb-30">
                                                 <label for="lname" class="d-block">Last Name:</label>
-                                                <input type="text" name="lname" id="lname"
+                                                <input type="text" name="lname" id="lname" value="{{ old('lname') }}"
                                                     class="@error('lname') is-invalid border-danger @enderror" />
                                                     @error('lname')
-                                                    <div class="invalid-feedback">Invalid name</div>
+                                                    <div class="invalid-feedback" style="display: block;">Invalid name</div>
                                                     @enderror
                                             </div>
                                         </div>
@@ -114,10 +114,10 @@ Nothing to show
                                     <!-- Email -->
                                     <div class="form-group mb-30">
                                         <label for="remail" class="d-block">Email:</label>
-                                        <input type="email" name="remail" id="remail"
+                                        <input type="email" name="remail" id="remail" value="{{ old('remail') }}"
                                             class="@error('remail') is-invalid border-danger @enderror" />
                                             @error('remail')
-                                            <div class="invalid-feedback">Email is invalid or used</div>
+                                            <div class="invalid-feedback" style="display: block;">Email is invalid or used</div>
                                             @enderror
                                     </div>
                                     <!-- Birthdate -->
@@ -126,7 +126,7 @@ Nothing to show
                                         <input type="date" name="birth_date" id="birth_date"
                                             class="@error('birth_date') is-invalid border-danger @enderror" />
                                             @error('birth_date')
-                                            <div class="invalid-feedback">You have to be older than 13 years old</div>
+                                            <div class="invalid-feedback" style="display: block;">You have to be older than 13 years old</div>
                                             @enderror
                                     </div>
                                     <!-- Password -->
@@ -135,7 +135,7 @@ Nothing to show
                                         <input type="password" name="rpassword" id="rpassword"
                                             class="@error('rpassword') is-invalid border-danger @enderror" />
                                             @error('rpassword')
-                                            <div class="invalid-feedback">Invalid password</div>
+                                            <div class="invalid-feedback" style="display: block;">Invalid password</div>
                                             @enderror
                                     </div>
                                     <!-- confirm password -->
@@ -144,7 +144,7 @@ Nothing to show
                                         <input type="password" name="rpassword_confirmation" id="rpassword_confirmation"
                                             class="@error('rpassword_confirmation') is-invalid border-danger @enderror" />
                                         @error('rpassword_confirmation')
-                                        <div class="invalid-feedback">Passwords don't match</div>
+                                        <div class="invalid-feedback" style="display: block;">Passwords don't match</div>
                                         @enderror
                                     </div>
                                     <!-- Submit -->
