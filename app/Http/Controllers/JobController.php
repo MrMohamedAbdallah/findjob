@@ -122,7 +122,7 @@ class JobController extends Controller
         Session::flash('status', 'Job created successfully');
 
         // Redirect to the job view with new one's id
-        return redirect()->route('job.show', $job->id);
+        return redirect()->route('job.show', $job->slug);
 
     }
 
@@ -171,27 +171,28 @@ class JobController extends Controller
      */
     public function update(Request $request,$slug)
     {
+        // Validate the request
+        $request->validate([
+            'title' => 'required|min:5|max:255',
+            'email' => 'required|email',
+            'address'   => 'nullable|min:10|max:255',
+            'phone'     => 'nullable|regex:/^[0-9\-]{10,20}$/',
+            'work_address' => 'required|min:10|max:255',
+            'salary'    => 'required|regex:/^[a-z0-9 ]+/i',
+            'tags'  => 'required|array|min:1|max:3',
+            'tags.*'    => [
+                'min:2', 'max:20', 'regex:/^[^, ;|\-#]+$/i'
+            ],
+            'description'   => 'nullable|min:20|max:500',
+            'details'   => 'required|min:10|max:5000',
+            'pic'   =>  'nullable|image|max:2048'
+        ]);
+        
         try{
-
+            
             // Find the job
             $job = Job::where('user_id', Auth::user()->id)->where('slug', $slug)->firstOrFail();
-
-            // Validate the request
-            $request->validate([
-                'title' => 'required|min:5|max:255',
-                'email' => 'required|email',
-                'address'   => 'nullable|min:10|max:255',
-                'phone'     => 'nullable|regex:/^[0-9\-]{10,20}$/',
-                'work_address' => 'required|min:10|max:255',
-                'salary'    => 'required|regex:/^[a-z0-9 ]+/i',
-                'tags'  => 'required|array|min:1|max:3',
-                'tags.*'    => [
-                    'min:2', 'max:20', 'regex:/^[^, ;|\-#]+$/i'
-                ],
-                'description'   => 'nullable|min:20|max:500',
-                'details'   => 'required|min:10|max:5000',
-                'pic'   =>  'nullable|image|max:2048'
-            ]);
+            
             
             // Delete old cover
             if($request->delete_pic && $job->pic && ! $request->pic){
@@ -223,11 +224,11 @@ class JobController extends Controller
             ]);
 
 
-
             Session::flash('status', 'Job has been updated successfully');
 
-            return redirect()->route('job.show', $job->id);
+            return redirect()->route('job.show', $job->slug);
         } catch (Exception $e){
+            dd($e);
             return abort(404);
         }
 

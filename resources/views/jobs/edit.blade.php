@@ -9,7 +9,7 @@
     @if($job->pic)
      <img class="img-cover" src="http://{{ Storage::url($job->pic) }}" alt="{{ $job->title }}">
     @endif
-    <form action="{{ route('job.update', $job->id) }}" method="POST" class="create-job-form"
+    <form action="{{ route('job.update', $job->slug) }}" method="POST" class="create-job-form"
         enctype="multipart/form-data">
         @csrf
         @method('PUT')
