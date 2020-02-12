@@ -4,6 +4,18 @@
 Nothing to show
 @endsection
 
+{{-- Register Error --}}
+@php
+$registerError = false;
+foreach(["fname", "lname", "remail", "birth_date", "rpassword", "rpassword_confirmation"] as $errorName){
+    if($errors->has($errorName)){
+        $registerError = true;
+        break;
+    }
+}
+
+@endphp
+
 {{-- Content --}}
 @section('content')
 <!-- Header -->
@@ -25,16 +37,16 @@ Nothing to show
                     <!-- Form card -->
                     <div class="form-card">
                         <ul class="tabs">
-                            <li class="tab login" data-show="#login-form" data- id="login-btn">
+                            <li class="tab login @if($registerError) inactive @endif" data-show="#login-form" data- id="login-btn">
                                 Login
                             </li>
-                            <li class="tab register inactive" data-show="#register-form" id="register-btn">
+                            <li class="tab register @if(!$registerError) inactive @endif" data-show="#register-form" id="register-btn">
                                 Register
                             </li>
                         </ul>
                         <div class="content">
                             <!-- Login -->
-                            <div class="login" id="login-form">
+                            <div class="login @if($registerError) d-none @endif" id="login-form">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <!-- Email -->
@@ -81,7 +93,7 @@ Nothing to show
                             </div>
                             <!-- /Login -->
                             <!-- Register -->
-                            <div class="register d-none" id="register-form">
+                            <div class="register @if(!$registerError) d-none @endif" id="register-form">
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <!-- Name -->
