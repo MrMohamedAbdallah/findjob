@@ -51,8 +51,8 @@
                                     @foreach($roles as $id => $name)
                                     <div>
                                         <input type="checkbox" class="checkbox-sm" value="{{ $name }}" name="roles[]"
-                                            id="role{{ $id }}" @if($user->hasRole($name)) checked @endif>
-                                        <label for="role{{ $id }}">{{ $name }}</label>
+                                            id="role{{ $id }}{{ $user->id }}" @if($user->hasRole($name)) checked @endif>
+                                        <label for="role{{ $id }}{{ $user->id }}">{{ $name }}</label>
                                     </div>
                                     @endforeach
                                 </form>
