@@ -202,7 +202,7 @@ foreach(["fname", "lname", "remail", "birth_date", "rpassword", "rpassword_confi
                 </p>
                 <!-- Get started -->
                 <div class="d-flex flex-center-x">
-                    <button class="btn btn-green text-white mr-15 px-20 py-10">
+                    <button class="btn btn-green text-white mr-15 px-20 py-10" onclick="window.scroll(0, 0);">
                         Get Started
                     </button>
                     <small class="text-blue">It's free</small>
@@ -225,7 +225,7 @@ foreach(["fname", "lname", "remail", "birth_date", "rpassword", "rpassword_confi
                 </p>
                 <!-- Get started -->
                 <div class="d-flex flex-center-x">
-                    <button class="btn btn-green text-white mr-15 px-20 py-10">
+                    <button class="btn btn-green text-white mr-15 px-20 py-10" onclick="window.scroll(0, 0);">
                         Get Started
                     </button>
                     <small class="text-blue">It's free</small>
@@ -302,7 +302,7 @@ foreach(["fname", "lname", "remail", "birth_date", "rpassword", "rpassword_confi
             <h1 class="font-bold text-black">Ready to find your job?</h1>
             <!-- Get started -->
             <div class="d-flex flex-center-x">
-                <button class="btn btn-green text-white mr-15 px-20 py-10">
+                <button class="btn btn-green text-white mr-15 px-20 py-10" onclick="window.scroll(0, 0);">
                     Get Started
                 </button>
                 <small class="text-blue">It's free</small>
