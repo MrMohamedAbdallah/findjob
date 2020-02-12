@@ -218,8 +218,7 @@ class RootController extends Controller
 
 
             // Get the roles
-            $roles = Role::where('name', 'user')->pluck('name', 'id')->all();
-
+            $roles = Role::pluck('name', 'id')->all();
 
             return view('user.admin.search-users', compact('users', 'roles', 'searchTerm'));
         } else {
