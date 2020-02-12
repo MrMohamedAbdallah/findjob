@@ -7,7 +7,7 @@ Nothing to show
 {{-- Content --}}
 @section('content')
 <!-- Header -->
-<header class="header header-1">
+<header class="header header-1" style="min-height: 1200px;margin-top: 30px;">
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="header-content">
