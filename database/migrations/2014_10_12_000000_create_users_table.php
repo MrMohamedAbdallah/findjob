@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->text('details')->nullable();
             $table->text('tags')->nullable();
             $table->text('address')->nullable();
+            $table->string("resume")->nullable();
             $table->text('slug');
             $table->rememberToken();
             $table->timestamps();

@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
         // Create Root User
         factory(App\User::class, 1)->create()->each(function($root){
             $root->email = "root@example.com";
+            $root->first = "Root";
+            $root->last = "User";
             $root->save();
             $root->roles()->attach([1,2,3]);    // Attach all roots
         });
