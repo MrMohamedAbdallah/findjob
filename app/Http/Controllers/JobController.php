@@ -39,12 +39,12 @@ class JobController extends Controller
     public function loggedIndex(){
         // User must be logged in to reach here
         
-        
         // Get logged in user
         $user = Auth::user();
 
         $tags = $user->tags;
         $query = Job::query();
+
 
         foreach($tags as $tag){
                 $query->orWhere('title', 'LIKE', '%' . $tag . '%')

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('work_address');
@@ -24,6 +25,8 @@ class CreatePostsTable extends Migration
             $table->text('details')->nullable();
             $table->text('pic')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->string('email');
+            $table->text('slug');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
