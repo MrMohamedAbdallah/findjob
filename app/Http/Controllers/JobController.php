@@ -43,14 +43,17 @@ class JobController extends Controller
         // Get logged in user
         $user = Auth::user();
 
-         // Selelect All users
-         $jobs = Job::where('title', 'LIKE', '%' . implode('|', $user->tags) . '%')
-                ->orWhere('description', 'LIKE', '%' . implode('|', $user->tags) . '%')
-                ->orWhere('email', 'LIKE', '%' . implode('|', $user->tags) . '%')
-                ->orWhere('tags', 'LIKE', '%' . implode('|', $user->tags) . '%')->paginate(10);
-        
+        $tags = $user->tags;
+        $query = Job::query();
 
+        foreach($tags as $tag){
+                $query->orWhere('title', 'LIKE', '%' . $tag . '%')
+                ->orWhere('description', 'LIKE', '%' . $tag . '%')
+                ->orWhere('email', 'LIKE', '%' . $tag . '%')
+                ->orWhere('tags', 'LIKE', '%' . $tag . '%');
+        }
         
+        $jobs = $query->paginate();
         
         return view('user.jobs', compact('user', 'jobs'));
     }
