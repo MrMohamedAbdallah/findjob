@@ -43,6 +43,7 @@ _i've built this website to practice building websites using Laravel_
 2. Backend
     * Laravel
 3. Frontend
+    * macy.js
     * Bootstrap
     * Fontawesome
 
