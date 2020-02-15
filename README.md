@@ -1,7 +1,7 @@
 # **Find job**
 Findjob is a website for finding & applying for jobs and sharing CVs online.
 
-## **Setupt**
+## **Setup**
 1. Clone the project
 2. Create database and config `.env` file
 3. Run this command for storage config in laravel
@@ -16,7 +16,7 @@ Findjob is a website for finding & applying for jobs and sharing CVs online.
 5. After seeding there will be one root user
     ```
     Email: root@example.com
-    Password: Password
+    Password: password
     ```
 
 ### **Roles**
